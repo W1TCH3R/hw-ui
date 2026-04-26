@@ -279,6 +279,7 @@ npx playwright test tests/ebay-cart.spec.ts --project=chromium --debug
 - PayPal is selected, but no PayPal login, authorization, or final order confirmation is completed.
 - Delivery address data is mock data.
 - If eBay changes its UI, selectors may need to be updated.
+- The GitHub Actions pipeline runs a stable subset of tests against eBay because eBay may apply bot protection, region-specific UI, or different checkout behavior in cloud runners.
 - In a real company project, these tests would ideally run against a stable test environment instead of a public production website.
 
 ---
