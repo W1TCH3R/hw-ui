@@ -56,6 +56,7 @@ test.describe("eBay filter tests", () => {
 	test("negative: should not apply unavailable brand filter", async ({
 		page,
 	}) => {
+        test.skip(!!process.env.CI, 'Skipped in CI because eBay may show browser verification / anti-bot page.');
 		const homePage = new EbayHomePage(page);
 		const resultsPage = new EbayResultsPage(page);
 

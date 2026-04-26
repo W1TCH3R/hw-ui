@@ -26,6 +26,7 @@ const testData = parse(fs.readFileSync("data/search-data.csv"), {
 }) as SearchData[];
 
 test.describe("eBay end-to-end shopping flow", () => {
+    test.skip(!!process.env.CI, 'Skipped in CI because eBay may show browser verification / anti-bot page.');
 	for (const data of testData) {
 		test("should complete shopping flow without completing payment", async ({
 			page,

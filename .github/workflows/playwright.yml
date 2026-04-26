@@ -29,7 +29,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run stable Playwright tests
-        run: npx playwright test tests/ebay-search.spec.ts tests/ebay-filter-spec.spec.ts --project=chromium --workers=1
+        run: npx playwright test --project=chromium --workers=1
 
       - name: Upload Playwright HTML report
         if: always()
