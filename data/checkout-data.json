@@ -1,0 +1,10 @@
+{
+  "email": "test.user@example.com",
+  "firstName": "Jonas",
+  "lastName": "Petraitis",
+  "addressLine1": "Gedimino pr. 1",
+  "city": "Vilnius",
+  "postalCode": "01103",
+  "phone": "+37061234567",
+  "country": "Lithuania"
+}
