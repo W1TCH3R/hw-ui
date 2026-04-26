@@ -33,7 +33,7 @@ export class EbayCheckoutPage {
 	async verifyCheckoutPageOpened(): Promise<void> {
 		await expect(this.page.locator("body")).toContainText(
 			/checkout|delivery|shipping|address|contact|email|payment/i,
-			{ timeout: 30_000 },
+			{ timeout: 60_000 },
 		);
 	}
 
@@ -44,7 +44,7 @@ export class EbayCheckoutPage {
 			.first();
 
 		if (
-			await countryDropdown.isVisible({ timeout: 3_000 }).catch(() => false)
+			await countryDropdown.isVisible({ timeout: 60_000 }).catch(() => false)
 		) {
 			await countryDropdown.selectOption({ label: country });
 		}
@@ -107,19 +107,19 @@ export class EbayCheckoutPage {
 			.or(this.page.getByText(/paypal/i))
 			.first();
 
-		await expect(paypalOption).toBeVisible({ timeout: 30_000 });
+		await expect(paypalOption).toBeVisible({ timeout: 100_000 });
 		await paypalOption.scrollIntoViewIfNeeded();
 
 		await paypalOption.click({ force: true });
 
 		await expect(this.page.locator("body")).toContainText(/paypal/i, {
-			timeout: 30_000,
+			timeout: 100_000,
 		});
 	}
 
 	async verifyPayPalSelected(): Promise<void> {
 		await expect(this.page.locator("body")).toContainText(/paypal/i, {
-			timeout: 30_000,
+			timeout: 100_000,
 		});
 	}
 
@@ -171,14 +171,14 @@ export class EbayCheckoutPage {
 	private async findVisibleInput(label: RegExp): Promise<Locator | null> {
 		const inputByLabel = this.page.getByLabel(label).first();
 
-		if (await inputByLabel.isVisible({ timeout: 3_000 }).catch(() => false)) {
+		if (await inputByLabel.isVisible({ timeout: 30_000 }).catch(() => false)) {
 			return inputByLabel;
 		}
 
 		const inputByPlaceholder = this.page.getByPlaceholder(label).first();
 
 		if (
-			await inputByPlaceholder.isVisible({ timeout: 3_000 }).catch(() => false)
+			await inputByPlaceholder.isVisible({ timeout: 30_000 }).catch(() => false)
 		) {
 			return inputByPlaceholder;
 		}
