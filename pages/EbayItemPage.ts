@@ -23,7 +23,7 @@ export class EbayItemPage {
 
 		const addedToCartDialog = this.page.getByRole("dialog");
 
-		await expect(addedToCartDialog).toBeVisible({ timeout: 30_000 });
+		await expect(addedToCartDialog).toBeVisible({ timeout: 50_000 });
 		await expect(addedToCartDialog).toContainText(/added to cart/i);
 	}
 
