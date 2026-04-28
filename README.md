@@ -272,7 +272,7 @@ npx playwright test tests/ebay-cart.spec.ts --project=chromium --debug
 
 ## Notes and Assumptions
 
-- eBay UI may vary depending on region, currency, cookies, A/B tests, and product availability.
+- eBay UI may vary depending on region, currency, cookies, A/B tests, and product availability (UPDATE: it varies on every machine i've tried so far, encountered cases where even with cleared cookies/cache pressing continue as guest forces user to a login page. Therefore tests may fail without a mock account in some cases).
 - Some products may not support “Add to cart”. If that happens, the selected item or locator strategy may need adjustment.
 - Checkout is intentionally not completed.
 - The test proceeds only as far as possible before payment.
